@@ -53,6 +53,53 @@ class MagicSelection {
   }
 }
 
+class MagicInsertion {
+  constructor(game) {
+    this.game = game;
+    this.image = document.getElementById("magic_types");
+    this.x = this.game.width - 104;
+    this.y = 120;
+    this.width = 32;
+    this.height = 32;
+    this.frameX = 0;
+    this.frameY = this.game.magicSelection.frameY;
+    this.maxFrame = 4;
+    this.fps = 60;
+    this.frameInterval = 1000/this.fps;
+    this.frameTimer = 0;
+    this.changed = false;
+    this.scale = 1;
+  }
+
+  update(deltaTime) {
+    //change display of magic when seelect another type
+    this.frameY = this.game.magicSelection.frameY;
+
+    // buttons animation
+    if (this.frameTimer < this.frameInterval) {
+      this.frameTimer += deltaTime;
+    } else {
+      // reset frame timer
+      this.frameTimer = 0;
+
+      if (this.scale < 1) this.scale += 0.2;
+      else this.scale = 1;
+    }
+  }
+
+  draw(context) {
+    //darw bullet button
+    context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, this.width, this.height, this.x, this.y, this.width * this.scale, this.height * this.scale);
+    //darw cone button
+    context.drawImage(this.image, (this.frameX + 1) * this.width, this.frameY * this.height, this.width, this.height, this.x + 52, this.y, this.width * this.scale, this.height * this.scale);
+    //darw area button
+    context.drawImage(this.image, (this.frameX + 2) * this.width, this.frameY * this.height, this.width, this.height, this.x + 26, this.y + 52, this.width * this.scale, this.height * this.scale);
+  }
+
+  resetImage() {
+    this.scale = 0;
+  };
+}
 
 class MagicBullet {
   constructor(game, direction) {

@@ -17,6 +17,7 @@ function platformer() {
       this.input = new InputHandler(this);
       this.sigma = new Sigma(this);
       this.magicSelection = new MagicSelection();
+      this.magicInsertion = new MagicInsertion(this);
       this.magicShots = [];
 
       this.coordinates = {x: 0, y: 0};
@@ -28,6 +29,7 @@ function platformer() {
       this.sigma.update(deltaTime);
       if (this.magicShots.length > 0) this.magicShots.forEach(magic => {magic.update(deltaTime)});
       this.magicSelection.update(deltaTime);
+      this.magicInsertion.update(deltaTime);
     }
 
     draw(context) {
@@ -37,6 +39,7 @@ function platformer() {
       if (this.magicShots.length > 0) this.magicShots.forEach(magic => {magic.draw(context)});
       this.front.draw(context);
       this.magicSelection.draw(context);
+      this.magicInsertion.draw(context);
     }
 
     addMagicBullet(direction) {

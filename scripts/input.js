@@ -47,6 +47,9 @@ class InputHandler {
 
       if (this.touchQ(x, y)) this.keys.push("KeyQ");
       else if (this.touchE(x, y)) this.keys.push("KeyE");
+      else if (this.touchA(x, y)) this.keys.push("KeyA");
+      else if (this.touchS(x, y)) this.keys.push("KeyS");
+      else if (this.touchD(x, y)) this.keys.push("KeyD");
     });
 
     window.addEventListener("touchmove", (e)=>{
@@ -56,7 +59,7 @@ class InputHandler {
       const rect = canvas.getBoundingClientRect();
       const x = this.xDown - rect.x;
       const y = this.yDown - rect.y;
-      if (this.touchQ(x, y) || this.touchE(x, y)) return;
+      if (this.touchQ(x, y) || this.touchE(x, y) || this.touchA(x, y) || this.touchS(x, y) || this.touchD(x, y)) return;
 
       //main logic
       const xDiff = this.xDown - e.touches[0].clientX;
@@ -101,14 +104,29 @@ class InputHandler {
   };
 
   touchA(x,y) {
+    const minX = this.game.magicInsertion.x - 10;
+    const maxX = this.game.magicInsertion.x + this.game.magicInsertion.width + 10;
+    const minY = this.game.magicInsertion.y - 10;
+    const maxY = this.game.magicInsertion.y + this.game.magicInsertion.height + 10;
 
+    return (x >= minX && x <= maxX && y >= minY && y <= maxY);
   };
 
   touchS(x,y) {
+    const minX = this.game.magicInsertion.x + 52 - 10;
+    const maxX = this.game.magicInsertion.x + 52 + this.game.magicInsertion.width + 10;
+    const minY = this.game.magicInsertion.y - 10;
+    const maxY = this.game.magicInsertion.y + this.game.magicInsertion.height + 10;
 
+    return (x >= minX && x <= maxX && y >= minY && y <= maxY);
   };
 
   touchD(x,y) {
+    const minX = this.game.magicInsertion.x + 26 - 10;
+    const maxX = this.game.magicInsertion.x + 26 + this.game.magicInsertion.width + 10;
+    const minY = this.game.magicInsertion.y + 52 - 10;
+    const maxY = this.game.magicInsertion.y + 52 + this.game.magicInsertion.height + 10;
 
+    return (x >= minX && x <= maxX && y >= minY && y <= maxY);
   };
 };

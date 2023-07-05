@@ -71,6 +71,7 @@ class Player {
         if (input.includes("KeyQ")) this.game.magicSelection.qPressed = true;
         else if (input.includes("KeyE")) this.game.magicSelection.ePressed = true;
         this.game.magicSelection.select();
+        this.game.magicInsertion.resetImage();
       }
       this.magicSelectionPressed = true;
     } else {
