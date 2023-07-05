@@ -42,8 +42,9 @@ class InputHandler {
       this.xDown = firstTouch.clientX;
       this.yDown = firstTouch.clientY;
 
-      const x = this.xDown - rect.x;
-      const y = this.yDown - rect.y;
+      const scale = (rect.width - 8) / 1024;
+      const x = (this.xDown - rect.x) / scale;
+      const y = (this.yDown - rect.y) / scale;
 
       if (this.touchQ(x, y)) this.keys.push("KeyQ");
       else if (this.touchE(x, y)) this.keys.push("KeyE");
@@ -57,8 +58,9 @@ class InputHandler {
 
       //do not need to move if you touch action buttons
       const rect = canvas.getBoundingClientRect();
-      const x = this.xDown - rect.x;
-      const y = this.yDown - rect.y;
+      const scale = (rect.width - 8) / 1024;
+      const x = (this.xDown - rect.x) / scale;
+      const y = (this.yDown - rect.y) / scale;
       if (this.touchQ(x, y) || this.touchE(x, y) || this.touchA(x, y) || this.touchS(x, y) || this.touchD(x, y)) return;
 
       //main logic
