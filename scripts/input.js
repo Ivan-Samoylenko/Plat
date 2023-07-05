@@ -104,28 +104,31 @@ class InputHandler {
   };
 
   touchA(x,y) {
-    const minX = this.game.magicInsertion.x - 10;
-    const maxX = this.game.magicInsertion.x + this.game.magicInsertion.width + 10;
-    const minY = this.game.magicInsertion.y - 10;
-    const maxY = this.game.magicInsertion.y + this.game.magicInsertion.height + 10;
+    const info = this.game.magicInsertion;
+    const minX = info.x - 10;
+    const maxX = info.x + info.width + 10;
+    const minY = info.y - 10;
+    const maxY = info.y + info.height + 10;
 
     return (x >= minX && x <= maxX && y >= minY && y <= maxY);
   };
 
   touchS(x,y) {
-    const minX = this.game.magicInsertion.x + 52 - 10;
-    const maxX = this.game.magicInsertion.x + 52 + this.game.magicInsertion.width + 10;
-    const minY = this.game.magicInsertion.y - 10;
-    const maxY = this.game.magicInsertion.y + this.game.magicInsertion.height + 10;
+    const info = this.game.magicInsertion;
+    const minX = info.x + info.width + info.gap - 10;
+    const maxX = info.x + info.width + info.gap + info.width + 10;
+    const minY = info.y - 10;
+    const maxY = info.y + info.height + 10;
 
     return (x >= minX && x <= maxX && y >= minY && y <= maxY);
   };
 
   touchD(x,y) {
-    const minX = this.game.magicInsertion.x + 26 - 10;
-    const maxX = this.game.magicInsertion.x + 26 + this.game.magicInsertion.width + 10;
-    const minY = this.game.magicInsertion.y + 52 - 10;
-    const maxY = this.game.magicInsertion.y + 52 + this.game.magicInsertion.height + 10;
+    const info = this.game.magicInsertion;
+    const minX = info.x + (info.width + info.gap) / 2 - 10;
+    const maxX = info.x + (info.width + info.gap) / 2 + info.width + 10;
+    const minY = info.y + info.height + info.gap - 10;
+    const maxY = info.y + info.height + info.gap + info.height + 10;
 
     return (x >= minX && x <= maxX && y >= minY && y <= maxY);
   };

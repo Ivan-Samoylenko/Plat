@@ -57,10 +57,11 @@ class MagicInsertion {
   constructor(game) {
     this.game = game;
     this.image = document.getElementById("magic_types");
-    this.x = this.game.width - 104;
-    this.y = 120;
     this.width = 32;
     this.height = 32;
+    this.gap = 40;
+    this.x = this.game.width - (this.width + this.gap) * 2;
+    this.y = 120;
     this.frameX = 0;
     this.frameY = this.game.magicSelection.frameY;
     this.maxFrame = 4;
@@ -91,9 +92,9 @@ class MagicInsertion {
     //darw bullet button
     context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, this.width, this.height, this.x, this.y, this.width * this.scale, this.height * this.scale);
     //darw cone button
-    context.drawImage(this.image, (this.frameX + 1) * this.width, this.frameY * this.height, this.width, this.height, this.x + 52, this.y, this.width * this.scale, this.height * this.scale);
+    context.drawImage(this.image, (this.frameX + 1) * this.width, this.frameY * this.height, this.width, this.height, this.x + this.width + this.gap, this.y, this.width * this.scale, this.height * this.scale);
     //darw area button
-    context.drawImage(this.image, (this.frameX + 2) * this.width, this.frameY * this.height, this.width, this.height, this.x + 26, this.y + 52, this.width * this.scale, this.height * this.scale);
+    context.drawImage(this.image, (this.frameX + 2) * this.width, this.frameY * this.height, this.width, this.height, this.x + (this.width + this.gap) / 2, this.y + this.height + this.gap, this.width * this.scale, this.height * this.scale);
   }
 
   resetImage() {
