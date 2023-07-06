@@ -68,7 +68,11 @@ class Sigma {
     if (this.magic) context.drawImage(this.image, this.frameX * this.width, this.frameY * this.height, this.width, this.height, this.x, this.y, this.imageWidth, this.imageHeight);
   }
 
-  start({imageWidth, imageHeight, dx, dy, workingTime, name}) {
+  start({imageWidth, imageHeight, dx, dy, workingTime, name, mana}) {
+    if (this.game.player.mana.amount < mana) return;
+
+    this.game.player.mana.dry(mana);
+
     this.magic = true;
     this.imageWidth = imageWidth;
     this.imageHeight = imageHeight;

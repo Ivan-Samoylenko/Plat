@@ -20,7 +20,8 @@ const sigmaOptions = {
     dx: -16,
     dy: 16,
     workingTime: 4 * 4 - 1,
-    name: "bullet"
+    name: "bullet",
+    mana: 15
   },
   sl: {
     imageWidth: 16,
@@ -28,7 +29,8 @@ const sigmaOptions = {
     dx: -16,
     dy: 0,
     workingTime: 4 * 6 - 1,
-    name: "cone"
+    name: "cone",
+    mana: 35
   },
   dl: {
     imageWidth: 256,
@@ -36,7 +38,8 @@ const sigmaOptions = {
     dx:-320,
     dy: 64 - 8,
     workingTime: 4 * 8 - 1,
-    name: "area"
+    name: "area",
+    mana: 70
   },
   ar: {
     imageWidth: 16,
@@ -44,7 +47,8 @@ const sigmaOptions = {
     dx: 64,
     dy: 16,
     workingTime: 4 * 4 - 1,
-    name: "bullet"
+    name: "bullet",
+    mana: 15
   },
   sr: {
     imageWidth: 16,
@@ -52,7 +56,8 @@ const sigmaOptions = {
     dx: 64,
     dy: 0,
     workingTime: 4 * 6 - 1,
-    name: "cone"
+    name: "cone",
+    mana: 35
   },
   dr: {
     imageWidth: 256,
@@ -60,7 +65,8 @@ const sigmaOptions = {
     dx: 128,
     dy: 64 - 8,
     workingTime: 4 * 8 - 1,
-    name: "area"
+    name: "area",
+    mana: 70
   }
 };
 

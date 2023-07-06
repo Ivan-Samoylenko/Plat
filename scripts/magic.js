@@ -61,7 +61,7 @@ class MagicInsertion {
     this.height = 32;
     this.gap = 40;
     this.x = this.game.width - (this.width + this.gap) * 2;
-    this.y = 120;
+    this.y = 180;
     this.frameX = 0;
     this.frameY = this.game.magicSelection.frameY;
     this.maxFrame = 4;

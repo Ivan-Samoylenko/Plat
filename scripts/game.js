@@ -38,6 +38,8 @@ function platformer() {
       this.player.draw(context);
       if (this.magicShots.length > 0) this.magicShots.forEach(magic => {magic.draw(context)});
       this.front.draw(context);
+      this.player.health.draw(context);
+      this.player.mana.draw(context);
       this.magicSelection.draw(context);
       this.magicInsertion.draw(context);
     }

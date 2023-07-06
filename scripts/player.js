@@ -20,6 +20,8 @@ class Player {
     this.states = [new IdleRight(this), new RunRight(this), new JumpRight(this), new FallRight(this), new IdleLeft(this), new RunLeft(this), new JumpLeft(this), new FallLeft(this), new MagicRight(this), new MagicLeft(this)];
     this.currentState = this.states[0];
     this.magicSelectionPressed = false;
+    this.mana = new Mana(this);
+    this.health = new Health(this);
   }
 
   update(input, deltaTime) {
@@ -79,6 +81,10 @@ class Player {
       this.game.magicSelection.qPressed = false;
       this.game.magicSelection.ePressed = false;
     }
+
+    //mana update
+    this.mana.update();
+    this.health.update();
   }
 
   draw(context) {
